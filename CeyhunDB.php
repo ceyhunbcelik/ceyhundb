@@ -14,7 +14,7 @@
     function dbname($name){
       $this -> sql .= 'dbname=' . $name;
       return $this;
-    } 
+    }
 
     function connect($user, $pass){
       try {
