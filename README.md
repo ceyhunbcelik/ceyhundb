@@ -15,3 +15,19 @@ I am making possible to use database operations by class. In this repository, I'
 ``` php
 require_once('CeyhunDB/CeyhunDB.php');
 ```
+
+## Connect Database
+- We need host name in dbhost() function. Please put a host name in function as parameter. If you are no idea, type "localhost".
+
+- dbname() is database name and we should type valid database name as parameter in that function.
+
+- Last one is type username and password as first and second parameters in connect() function. If you are no idea, type "root" and "root"
+
+``` php
+$sql -> dbhost('your_host')
+     -> dbname('your_database_name')
+     -> connect('username', 'password.')
+```
+
+## License
+This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
