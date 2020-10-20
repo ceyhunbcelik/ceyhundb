@@ -14,6 +14,7 @@ I am making possible to use database operations by class. In this repository, I'
 
 ``` php
 require_once('CeyhunDB/CeyhunDB.php');
+$sql = new sqlStatements();
 ```
 
 ## Connect Database
