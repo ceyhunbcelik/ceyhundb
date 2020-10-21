@@ -37,6 +37,11 @@ $sql -> dbhost('your_host')
 ```
 
 ## Insert Data
+- type table name as parameter in insert() function
+
+- type every column name as parameter in columns() function
+
+- type your adding values as parameter in values() function
 
 ``` php
 $sql -> insert('table')
