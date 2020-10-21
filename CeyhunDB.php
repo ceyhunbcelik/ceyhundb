@@ -64,9 +64,33 @@
       } catch (PDOException $e) {
         echo $e -> getMessage();
       }
+    }
 
+    function prepare($values){
+      try {
+        global $db;
+        $fetch = function_exists('mb_strtolower') ? mb_strtolower(func_get_args($values)[0][0]) : strtolower(func_get_args($values)[0][0]);
+        $values = func_get_args($values)[1];
+
+        if($fetch == 'fetch'){
+          $query = $db -> prepare($this -> sql);
+          $query -> execute($values);
+
+          $this -> sql = '';
+
+          $data = $query -> fetch(PDO::FETCH_ASSOC);
+
+          return $data;
+        } elseif ($fetch == 'fetchall') {
+
+        }
+
+      } catch (PDOException $e) {
+        echo $e -> getMessage();
+      }
 
     }
+
 
     function insert($table){
       $this -> sql = '';
@@ -83,13 +107,15 @@
       try {
         global $db;
 
+        print_r(func_get_args($values));
+
         $query = $db -> prepare($this -> sql);
         $query -> execute(func_get_args($values));
 
         $this -> sql = '';
 
         if($query){
-          return 1;
+          return $query;
         } else{
           $error = $query -> errorInfo();
           return 'MySQL Error: ' . $error[2];

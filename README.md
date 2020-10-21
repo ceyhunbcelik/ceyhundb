@@ -1,7 +1,7 @@
 # CeyhunDB
-PDO is good. But if you was use the MySQLi, you will feels like crazy. Because it is so simple.
+PDO is good. But if you were use the MySQLi, you will feels like crazy. Because it is so simple.
 
-If you was use NoSQL like a MongoDB, always want to object, class or function to do database operations.
+If you were use NoSQL like a MongoDB, always want to object, class or function to do database operations.
 
 I am making possible to use database operations by class. In this repository, I'm going to show you how to use database operations by functions of class rather than to use PDO directly. ⚙️
 
@@ -36,7 +36,7 @@ $db = $sql -> dbhost('your_host')
            -> connect('username', 'password')
 ```
 
-## Pull Data
+## Pull Data[QUERY]
 - type columns in select() function as parameter, if you want all of them, just put a star ( * )
 
 - type table name in from() function as parameter
@@ -65,6 +65,19 @@ $data = $sql -> select('*')
              -> _where('&&', 'id', '=', '7')
              -> _where('&&', 'id', '=', '9')
              -> query('fetch');
+```
+
+## Pull Data[PREPARE]
+- My favorite is this, if you permit outside intervention to your sql and want to protect from sql injection, this is the best because execute() function converting value to harmless. We are using prepare() instead of query().
+
+- If you want to fetch only 1 data, put  'fetch' string in array of first parameter. Values should be in array of second parameter.
+
+``` php
+$data = $sql -> select('*')
+             -> from('table')
+             -> where('id', '=', '?')
+             -> _where('&&', 'confirmation', '=', '?')
+             -> prepare(['fetch'], ['3', '1']);
 ```
 
 ## Insert Data
