@@ -49,6 +49,22 @@ $data = $sql -> select('*')
              -> query('fetchall');
 ```
 
+- but if you want to filter by column and pull only one data, first of all, filter by where() function.
+
+- use _where() function when you need more, till enough for your command and put 'fetch' parameter in query() function.
+
+- first parameter is column, second parameter is comparison([=]/[>]/[<]) operator and third is value in where() function.
+
+- if you need _where() function, defference between where and _where is, this function need more parameter and this extra parameter is logical([&&]/[||]) operator and that's put in first parameter and other parameters is like a where() function's parameters.
+
+``` php
+$data = $sql -> select('*')
+             -> from('table')
+             -> where('id', '=', '3')
+             -> _where('&&', 'id', '=', '5')
+             -> query('fetch');
+```
+
 ## Insert Data
 - type table name as parameter in insert() function
 

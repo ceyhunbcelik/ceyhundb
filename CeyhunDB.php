@@ -42,22 +42,20 @@
       return $this;
     }
 
-    function where(){
-
-    }
-
     function query($fetch){
       try {
         global $db;
         $fetch = function_exists('mb_strtolower') ? mb_strtolower($fetch) : strtolower($fetch);
 
         if($fetch == 'fetch'){
-          $this -> sql .= $fetch;
-          return $this;
+          $query = $db -> query($this -> sql) -> fetch(PDO::FETCH_ASSOC);
+
+          $this -> sql = '';
+
+          return $query;
+
         } elseif ($fetch == 'fetchall') {
           $query = $db -> query($this -> sql) -> fetchAll(PDO::FETCH_ASSOC);
-
-          echo $this -> sql = '';
 
           $this -> sql = '';
 
@@ -99,6 +97,16 @@
       } catch (PDOException $e) {
         echo $e -> getMessage();
       }
+    }
+
+    function where($column, $comparison, $value){
+      $this -> sql .= ' WHERE ' . $column . ' ' . $comparison . ' ' . $value;
+      return $this;
+    }
+
+    function _where($logical, $column, $comparison, $value){
+      $this -> sql .= ' ' . $logical . ' ' . $column . ' ' . $comparison . ' ' . $value;
+      return $this;
     }
 
     function all(){
