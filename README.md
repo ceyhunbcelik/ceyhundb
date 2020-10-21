@@ -31,10 +31,13 @@ $sql = new sqlStatements();
 - Last one is type username and password as first and second parameters in connect() function. If you are no idea, type "root" and "root"
 
 ``` php
-$sql -> dbhost('your_host')
-     -> dbname('your_database_name')
-     -> connect('username', 'password.')
+$db = $sql -> dbhost('your_host')
+           -> dbname('your_database_name')
+           -> connect('username', 'password')
 ```
+
+## Pull Data
+-
 
 ## Insert Data
 - type table name as parameter in insert() function
@@ -44,15 +47,15 @@ $sql -> dbhost('your_host')
 - type your adding values as parameter in values() function
 
 ``` php
-$sql -> insert('table')
-     -> columns('column1', 'column2', 'column3')
-     -> values('value1', 'value2', 'value3');
+$insert = $sql -> insert('table')
+               -> columns('column1', 'column2', 'column3')
+               -> values('value1', 'value2', 'value3');
 
-if($sql){
+if($insert){
   // True
 } else{
   // False
-  echo $sql; // Error
+  echo $insert; // Error
 }
 ```
 

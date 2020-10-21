@@ -30,6 +30,42 @@
       }
     }
 
+    function select($columns){
+      $this -> sql = '';
+
+      $this -> sql .= 'SELECT ' . $columns . ' ';
+      return $this;
+    }
+
+    function from($tables){
+      $this -> sql .= 'FROM ' . $tables;
+      return $this;
+    }
+
+    function query($fetch){
+      try {
+        global $db;
+        $fetch = function_exists('mb_strtolower') ? mb_strtolower($fetch) : strtolower($fetch);
+
+        if($fetch == 'fetch'){
+          $this -> sql .= $fetch;
+          return $this;
+        } elseif ($fetch == 'fetchall') {
+          $query = $db -> query($this -> sql) -> fetchAll(PDO::FETCH_ASSOC);
+
+          echo $this -> sql = '';
+
+          $this -> sql = '';
+
+          return $query;
+        }
+      } catch (PDOException $e) {
+        echo $e -> getMessage();
+      }
+
+
+    }
+
     function insert($table){
       $this -> sql = '';
       $this -> sql .= 'INSERT INTO ' .  $table . ' ';
