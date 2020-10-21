@@ -62,6 +62,8 @@ $data = $sql -> select('*')
              -> from('table')
              -> where('id', '=', '3')
              -> _where('&&', 'id', '=', '5')
+             -> _where('&&', 'id', '=', '7')
+             -> _where('&&', 'id', '=', '9')
              -> query('fetch');
 ```
 
