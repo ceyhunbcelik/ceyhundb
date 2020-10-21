@@ -63,7 +63,6 @@ $data = $sql -> select('*')
              -> where('id', '=', '3')
              -> _where('&&', 'id', '=', '5')
              -> _where('&&', 'id', '=', '7')
-             -> _where('&&', 'id', '=', '9')
              -> query('fetch');
 ```
 
@@ -76,7 +75,7 @@ $data = $sql -> select('*')
 $data = $sql -> select('*')
              -> from('table')
              -> where('id', '=', '?')
-             -> _where('&&', 'confirmation', '=', '?')
+             -> _where('&&', 'column', '=', '?')
              -> prepare(['fetch'], ['3', '1']);
 ```
 - but if you want to fetch all of data, just put 'fetchall' in first array as parameter.
