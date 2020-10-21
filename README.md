@@ -36,5 +36,21 @@ $sql -> dbhost('your_host')
      -> connect('username', 'password.')
 ```
 
+## Insert Data
+
+``` php
+$sql -> insert('table')
+     -> columns('column1', 'column2', 'column3')
+     -> values('value1', 'value2', 'value3');
+
+if($sql){
+  // True
+} else{
+  // False
+  echo $sql; // Error
+}
+```
+
+
 ## License
 This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
