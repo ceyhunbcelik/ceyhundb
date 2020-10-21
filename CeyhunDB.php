@@ -42,6 +42,10 @@
       return $this;
     }
 
+    function where(){
+      
+    }
+
     function query($fetch){
       try {
         global $db;
