@@ -79,6 +79,14 @@ $data = $sql -> select('*')
              -> _where('&&', 'confirmation', '=', '?')
              -> prepare(['fetch'], ['3', '1']);
 ```
+- but if you want to fetch all of data, just put 'fetchall' in first array as parameter.
+
+``` php
+$data = $sql -> select('*')
+             -> from('table')
+             -> where('column', '=', '?')
+             -> prepare(['fetchall'], ['0']);
+```
 
 ## Insert Data
 - type table name as parameter in insert() function

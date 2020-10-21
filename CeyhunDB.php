@@ -82,7 +82,14 @@
 
           return $data;
         } elseif ($fetch == 'fetchall') {
+          $query = $db -> prepare($this -> sql);
+          $query -> execute($values);
 
+          $this -> sql = '';
+
+          $data = $query -> fetchAll(PDO::FETCH_ASSOC);
+
+          return $data;
         }
 
       } catch (PDOException $e) {
