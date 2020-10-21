@@ -37,7 +37,7 @@ $db = $sql -> dbhost('your_host')
 ```
 
 ## Pull Data
-- tpye columns in select() function, if you want all of them, just put a star ( * )
+- type columns in select() function, if you want all of them, just put a star ( * )
 
 - type table name in from() function
 
