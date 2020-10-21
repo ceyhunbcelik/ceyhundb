@@ -43,7 +43,7 @@
     }
 
     function where(){
-      
+
     }
 
     function query($fetch){

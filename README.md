@@ -37,7 +37,17 @@ $db = $sql -> dbhost('your_host')
 ```
 
 ## Pull Data
--
+- tpye columns in select() function, if you want all of them, just put a star ( * )
+
+- type table name in from() function
+
+- we have different way to pull data. If you not permit outside intervention to your sql, query() is good, if you want to pull all of data, please put 'fetchall' in your query() parameter
+
+``` php
+$data = $sql -> select('*')
+             -> from('table')
+             -> query('fetchall');
+```
 
 ## Insert Data
 - type table name as parameter in insert() function
