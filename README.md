@@ -37,9 +37,9 @@ $db = $sql -> dbhost('your_host')
 ```
 
 ## Pull Data
-- type columns in select() function, if you want all of them, just put a star ( * )
+- type columns in select() function as parameter, if you want all of them, just put a star ( * )
 
-- type table name in from() function
+- type table name in from() function as parameter
 
 - we have different way to pull data. If you not permit outside intervention to your sql, query() is good, if you want to pull all of data, please put 'fetchall' in your query() parameter
 
