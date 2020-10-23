@@ -153,6 +153,11 @@
       return $this;
     }
 
+    function order_by($column, $sort){
+      $this -> sql .= ' ORDER BY ' . $column . ' ' . $sort;
+      return $this;
+    }
+
     function all(){
       return $this -> sql;
     }
