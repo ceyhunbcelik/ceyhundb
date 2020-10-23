@@ -120,10 +120,10 @@ if($insert){
 
 ``` php
 $update = $sql -> update('table')
-               -> columns('column1', 'column2', 'column3')
+               -> columns('column1', 'column2')
                -> where('id', '=', '?')
-               -> _where('&&', 'column5', '=', '?')
-               -> values('value1', 'value2', 'value3', 'value4', 'value5');
+               -> _where('&&', 'column4', '=', '?')
+               -> values('value1', 'value2', 'value3', 'value4');
 ```
 
 ## License
