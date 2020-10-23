@@ -105,7 +105,6 @@
 
     }
 
-
     function insert($table){
       $this -> sql = '';
       $this -> sql .= 'INSERT INTO ' .  $table . ' ';
@@ -135,6 +134,13 @@
       } catch (PDOException $e) {
         echo $e -> getMessage();
       }
+    }
+
+    function delete($table){
+      $this -> sql = '';
+
+      $this -> sql .= 'DELETE FROM ' . $table;
+      return $this;
     }
 
     function where($column, $comparison, $value){

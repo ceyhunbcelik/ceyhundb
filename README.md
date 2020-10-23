@@ -126,5 +126,22 @@ $update = $sql -> update('table')
                -> values('value1', 'value2', 'value3', 'value4');
 ```
 
+## Delete Data
+
+- type table name as parameter in delete() function
+
+- first parameter is column, second parameter is comparison([=]/[>]/[<]) operator and third is value in where() function.
+
+- use _where() if you need more where() function, difference between where and _where is, this function need more parameter and this extra parameter is logical([&&]/[||]) operator and that's put in first parameter and other parameters is like a where() function's parameters.
+
+- type your condition values as parameter in values() function
+
+``` php
+$delete = $sql -> delete('table')
+               -> where('id', '=', '?')
+               -> values('value1');
+```
+
+
 ## License
 This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
