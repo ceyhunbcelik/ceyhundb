@@ -66,6 +66,13 @@
       }
     }
 
+    function update($table){
+      $this -> sql = '';
+
+      $this -> sql .= 'UPDATE ' . $table . ' ';
+      return $this;
+    }
+
     function prepare($values){
       try {
         global $db;
@@ -113,8 +120,6 @@
     function values($values){
       try {
         global $db;
-
-        print_r(func_get_args($values));
 
         $query = $db -> prepare($this -> sql);
         $query -> execute(func_get_args($values));

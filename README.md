@@ -55,7 +55,7 @@ $data = $sql -> select('*')
 
 - first parameter is column, second parameter is comparison([=]/[>]/[<]) operator and third is value in where() function.
 
-- if you need _where() function, defference between where and _where is, this function need more parameter and this extra parameter is logical([&&]/[||]) operator and that's put in first parameter and other parameters is like a where() function's parameters.
+- use _where() if you need more where() function, difference between where and _where is, this function need more parameter and this extra parameter is logical([&&]/[||]) operator and that's put in first parameter and other parameters is like a where() function's parameters.
 
 ``` php
 $data = $sql -> select('*')
@@ -107,6 +107,24 @@ if($insert){
 }
 ```
 
+## Update Data
+- type table name as parameter in update() function
+
+- type every column name as parameter in columns() function
+
+- first parameter is column, second parameter is comparison([=]/[>]/[<]) operator and third is value in where() function.
+
+- use _where() if you need more where() function, difference between where and _where is, this function need more parameter and this extra parameter is logical([&&]/[||]) operator and that's put in first parameter and other parameters is like a where() function's parameters.
+
+- type your update and condition values as parameter in values() function
+
+``` php
+$update = $sql -> update('table')
+               -> columns('column1', 'column2', 'column3')
+               -> where('id', '=', '?')
+               -> _where('&&', 'column5', '=', '?')
+               -> values('value1', 'value2', 'value3', 'value4', 'value5');
+```
 
 ## License
 This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
