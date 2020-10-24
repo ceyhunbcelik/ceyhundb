@@ -143,6 +143,16 @@
       return $this;
     }
 
+    function join($type, $table){
+      $this -> sql .= ' ' . $type . ' JOIN ' . $table;
+      return $this;
+    }
+
+    function on($tableColum1, $comparison, $tableColumn2){
+      $this -> sql .= ' ON ' . $tableColum1 . ' ' . $comparison . ' ' . $tableColumn2;
+      return $this;
+    }
+
     function where($column, $comparison, $value){
       $this -> sql .= ' WHERE ' . $column . ' ' . $comparison . ' ' . $value;
       return $this;

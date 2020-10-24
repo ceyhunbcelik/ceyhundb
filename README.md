@@ -142,6 +142,24 @@ $delete = $sql -> delete('table')
                -> values('value1');
 ```
 
+## Join Table
+
+- type columns in select() function as parameter, if you want all of them, just put a star ( * )
+
+- type table name in from() function as parameter
+
+- 
+
+``` php
+$query = $sql -> select('
+                  table1.title,
+                  table2.title as table2_title
+                 ')
+              -> from('table1')
+              -> join('INNER/LEFT/RIGHT', 'table2')
+              -> on('table1.table2_id', '=', 'table2.id')
+              -> prepare(['fetchall'], []);
+```
 
 ## License
 This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
