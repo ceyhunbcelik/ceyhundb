@@ -69,7 +69,7 @@ $data = $sql -> select('*')
 ## Pull Data[PREPARE]
 - My favorite is this, if you permit outside intervention to your sql and want to protect from sql injection, this is the best because execute() function converting value to harmless. We are using prepare() instead of query().
 
-- If you want to fetch only 1 data, put  'fetch' string in array of first parameter. Values should be in array of second parameter.
+- If you want to fetch only 1 data, put 'fetch' string in array of first parameter. Values should be in array of second parameter.
 
 ``` php
 $data = $sql -> select('*')
@@ -78,6 +78,7 @@ $data = $sql -> select('*')
              -> _where('&&', 'column', '=', '?')
              -> prepare(['fetch'], ['3', '1']);
 ```
+
 - but if you want to fetch all of data, just put 'fetchall' in first array as parameter.
 
 ``` php
@@ -144,11 +145,17 @@ $delete = $sql -> delete('table')
 
 ## Join Table
 
-- type columns in select() function as parameter, if you want all of them, just put a star ( * )
+- type columns with table in select() function as parameter
 
 - type table name in from() function as parameter
 
-- 
+- decide to use INNER, LEFT, RIGHT in first parameter of join() function and put table name in second parameter.
+
+- put column to make equal in first and third parameters. second parameter is comparison parameter.
+
+- If you want to fetch only 1 data, put 'fetch' string in array of first parameter. Values should be in array of second parameter.
+
+- but if you want to fetch all of data, just put 'fetchall' in first array as parameter.
 
 ``` php
 $query = $sql -> select('
