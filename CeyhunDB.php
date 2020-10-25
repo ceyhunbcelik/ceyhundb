@@ -163,6 +163,11 @@
       return $this;
     }
 
+    function where_check(){
+      $this -> sql .= ' WHERE ';
+      return $this;
+    }
+
     function order_by($column, $sort){
       $this -> sql .= ' ORDER BY ' . $column . ' ' . $sort;
       return $this;
@@ -170,11 +175,11 @@
 
     function like($type, $tableColum, $value){
       if($type == 'start'){
-        $this -> sql .= ' WHERE ' . $tableColum . ' LIKE "' . $value . '%"';
+        $this -> sql .= $tableColum . ' LIKE "' . $value . '%"';
       } elseif($type == 'end'){
-        $this -> sql .= ' WHERE ' . $tableColum . ' LIKE "%' . $value . '"';
+        $this -> sql .= $tableColum . ' LIKE "%' . $value . '"';
       } elseif ($type == 'in') {
-        $this -> sql .= ' WHERE ' . $tableColum . ' LIKE "%' . $value . '%"';
+        $this -> sql .= $tableColum . ' LIKE "%' . $value . '%"';
       }
       return $this;
     }
@@ -188,6 +193,10 @@
         $this -> sql .= ' ' . $logical . ' ' . $tableColum . ' LIKE "%' . $value . '%"';
       }
       return $this;
+    }
+
+    function between($start, $end){
+      $this -> sql .= ' BETWEEN "' . $start . '" AND "' . $end '"';
     }
 
     function all(){
