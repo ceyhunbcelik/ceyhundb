@@ -196,7 +196,7 @@
     }
 
     function between($start, $end){
-      $this -> sql .= ' BETWEEN "' . $start . '" AND "' . $end '"';
+      $this -> sql .= ' BETWEEN "' . $start . ' 00:00:00" AND "' . $end ' 23:59:59"';
     }
 
     function all(){
