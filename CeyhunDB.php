@@ -179,6 +179,17 @@
       return $this;
     }
 
+    function _like($logical, $type, $tableColum, $value){
+      if($type == 'start'){
+        $this -> sql .= ' ' . $logical . ' ' . $tableColum . ' LIKE "' . $value . '%"';
+      } elseif($type == 'end'){
+        $this -> sql .= ' ' . $logical . ' ' . $tableColum . ' LIKE "%' . $value . '"';
+      } elseif ($type == 'in') {
+        $this -> sql .= ' ' . $logical . ' ' . $tableColum . ' LIKE "%' . $value . '%"';
+      }
+      return $this;
+    }
+
     function all(){
       return $this -> sql;
     }
