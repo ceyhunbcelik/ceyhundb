@@ -168,6 +168,17 @@
       return $this;
     }
 
+    function like($type, $tableColum, $value){
+      if($type == 'start'){
+        $this -> sql .= ' WHERE ' . $tableColum . ' LIKE "' . $value . '%"';
+      } elseif($type == 'end'){
+        $this -> sql .= ' WHERE ' . $tableColum . ' LIKE "%' . $value . '"';
+      } elseif ($type == 'in') {
+        $this -> sql .= ' WHERE ' . $tableColum . ' LIKE "%' . $value . '%"';
+      }
+      return $this;
+    }
+
     function all(){
       return $this -> sql;
     }

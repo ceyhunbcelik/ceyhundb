@@ -151,7 +151,7 @@ $delete = $sql -> delete('table')
 
 - decide to use INNER, LEFT, RIGHT in first parameter of join() function and put table name in second parameter.
 
-- put column to make equal in first and third parameters. second parameter is comparison parameter.
+- put column to make equal in first and third parameters in on() function. second parameter is comparison parameter.
 
 - If you want to fetch only 1 data, put 'fetch' string in array of first parameter. Values should be in array of second parameter.
 
