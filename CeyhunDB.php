@@ -156,6 +156,13 @@
       return $this;
     }
 
+    function lastID(){
+      global $db;
+
+      $lastID = $db -> lastInsertId();
+      return $lastID;
+    }
+
     function where($column, $comparison, $value){
       $this -> sql .= ' WHERE ' . $column . ' ' . $comparison . ' ' . $value;
       return $this;
@@ -199,7 +206,8 @@
     }
 
     function between($start, $end){
-      $this -> sql .= ' BETWEEN "' . $start . ' 00:00:00" AND "' . $end ' 23:59:59"';
+      $this -> sql .= ' BETWEEN "' . $start . ' 00:00:00" AND "' . $end . ' 23:59:59"';
+      return $this;
     }
 
     function all(){
