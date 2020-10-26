@@ -1,5 +1,7 @@
 <?php
 
+  /* FIND_IN_SET */
+
   class sqlStatements{
 
     function __construct(){
