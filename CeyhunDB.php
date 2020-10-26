@@ -1,6 +1,7 @@
 <?php
 
   /* FIND_IN_SET */
+  /* GROUP_CONCAT */
 
   class sqlStatements{
 
