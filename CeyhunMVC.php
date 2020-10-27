@@ -38,6 +38,6 @@
     return $protocol . '://' . $host . $script;
   }
 
-  require_once(PATH . '/app/init.php');
+  // require_once(PATH . '/app/init.php');
 
 ?>
