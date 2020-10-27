@@ -169,7 +169,27 @@ $query = $sql -> select('
 ```
 
 # CeyhunMVC.php
--
+- We need the model-view-controller to manage directory of project or whatever you calling.
+
+- At the same time, i think the best purpose is working on every system clearly. This is my new Palace gem. CeyhunMVC.php
+
+route() function is giving your url route. For example
+
+```  apacheconf
+/blog/my-blog-post/5
+```
+is
+```  php
+Array([0] => blog [1] => my-blog-post [2] => 5)
+```
+when you print_r your $route, and $route should be:
+```  php
+$route = route($_SERVER['REQUEST_URI']);
+```
+
+- Second is URL, eveybody know ne need the URL. CeyhunMVC.php providing dynamic URL by define().
+
+- you need to include in index.php of your project. After than create init.php and include in last line of CeyhunMVC. You can use every providing of CeyhunDB in your init.php.
 
 ## License
 This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
