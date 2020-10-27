@@ -187,7 +187,13 @@ when you print_r your $route, and $route should be:
 $route = route($_SERVER['REQUEST_URI']);
 ```
 
-- Second is URL, eveybody know ne need the URL. CeyhunMVC.php providing dynamic URL by define().
+- Second is URL:
+
+```  php
+URL
+```
+
+- eveybody know ne need the URL. CeyhunMVC.php providing dynamic URL by define().
 
 - you need to include in index.php of your project. After than create init.php and include in last line of CeyhunMVC. You can use every providing of CeyhunDB in your init.php.
 
