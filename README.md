@@ -184,7 +184,7 @@ Array([0] => blog [1] => my-blog-post [2] => 5)
 ```
 when you print_r your $route, and $route should be:
 ```  php
-$route = route($_SERVER['REQUEST_URI']);
+$route = route();
 ```
 
 - Second is URL:

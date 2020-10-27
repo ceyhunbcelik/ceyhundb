@@ -4,15 +4,15 @@
   ob_start();
 
   define('PATH', realpath('.'));
-  define('SUBFOLDER', subfolder($_SERVER['SCRIPT_NAME']));
-  define('URL', url($_SERVER['HTTP_HOST'], $_SERVER['SCRIPT_NAME']));
+  define('SUBFOLDER', subfolder());
+  define('URL', url());
 
-  function subfolder($script_name){
-    return dirname($_SERVER['SCRIPT_NAME']) === '\\' || dirname($script_name) == '/' ? 0 : 1;
+  function subfolder(){
+    return dirname($_SERVER['SCRIPT_NAME']) === '\\' || dirname($_SERVER['SCRIPT_NAME']) == '/' ? 0 : 1;
   }
 
-  function route($request){
-    $request = explode("?", $request);
+  function route(){
+    $request = explode("?", $_SERVER['REQUEST_URI']);
     $request = explode('/', $request[0]);
 
     foreach ($request as $val)
@@ -28,16 +28,16 @@
     return $route;
   }
 
-  function url($host, $script){
+  function url(){
 
     $protocol = isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : "http";
-    $script   = dirname($script) == "\\" || dirname($script) == '/'
+    $script   = dirname($_SERVER['SCRIPT_NAME']) == "\\" || dirname($_SERVER['SCRIPT_NAME']) == '/'
       ? '/'
-      : dirname($script) . '/';
+      : dirname($_SERVER['SCRIPT_NAME']) . '/';
 
-    return $protocol . '://' . $host . $script;
+    return $protocol . '://' . $_SERVER['HTTP_HOST'] . $script;
   }
 
-  // require_once(PATH . '/app/init.php');
+  require_once(PATH . '/app/init.php');
 
 ?>
