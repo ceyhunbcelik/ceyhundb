@@ -38,6 +38,7 @@
     return $protocol . '://' . $_SERVER['HTTP_HOST'] . $script;
   }
 
+  require_once(PATH . '/app/CeyhunPHP/CeyhunDB.php');
   require_once(PATH . '/app/init.php');
 
 ?>
