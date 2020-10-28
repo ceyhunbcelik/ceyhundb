@@ -156,11 +156,11 @@
       return $this;
     }
 
-    function lastID(){
+    function lastInsertId(){
       global $db;
 
-      $lastID = $db -> lastInsertId();
-      return $lastID;
+      $lastInsertId = $db -> lastInsertId();
+      return $lastInsertId;
     }
 
     function where($column, $comparison, $value){
@@ -204,6 +204,20 @@
       }
       return $this;
     }
+
+    function limit($values){
+
+      $count = func_num_args();
+
+      if($count == 1){
+        $this -> sql .= ' LIMIT ' . func_get_arg(0);
+        return $this;
+      } elseif ($count == 2) {
+        $this -> sql .= ' LIMIT ' . func_get_arg(0) . ',' . func_get_arg(1);
+        return $this;
+      }
+    }
+
 
     function between($start, $end){
       $this -> sql .= ' BETWEEN "' . $start . ' 00:00:00" AND "' . $end . ' 23:59:59"';

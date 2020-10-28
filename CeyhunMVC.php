@@ -39,6 +39,9 @@
   }
 
   require_once(PATH . '/app/CeyhunPHP/CeyhunDB.php');
+  $sql = new sqlStatements();
+  
   require_once(PATH . '/app/init.php');
+
 
 ?>
