@@ -85,7 +85,7 @@
         if($fetch == 'fetch'){
           $query = $db -> prepare($this -> sql);
           $query -> execute([$values]);
-          
+
           $this -> sql = '';
 
           $data = $query -> fetch(PDO::FETCH_ASSOC);
