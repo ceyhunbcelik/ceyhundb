@@ -94,7 +94,7 @@
 
         } elseif ($fetch == 'fetchall') {
           $query = $db -> prepare($this -> sql);
-          $query -> execute($values);
+          $query -> execute([$values]);
 
           $this -> sql = '';
 
@@ -184,11 +184,6 @@
       return $this;
     }
 
-    function order_by($column, $sort){
-      $this -> sql .= ' ORDER BY ' . $column . ' ' . $sort;
-      return $this;
-    }
-
     function like($type, $tableColum, $value){
       if($type == 'start'){
         $this -> sql .= $tableColum . ' LIKE "' . $value . '%"';
@@ -208,6 +203,21 @@
       } elseif ($type == 'in') {
         $this -> sql .= ' ' . $logical . ' ' . $tableColum . ' LIKE "%' . $value . '%"';
       }
+      return $this;
+    }
+
+    function FIND_IN_SET($column1, $column2){
+      $this -> sql .= 'FIND_IN_SET(' . $column1 . ', ' . $column2 . ')';
+      return $this;
+    }
+
+    function _FIND_IN_SET($logical, $column1, $column2){
+      $this -> sql .= ' ' . $logical . ' FIND_IN_SET(' . $column1 . ', ' . $column2 . ')';
+      return $this;
+    }
+
+    function order_by($column, $sort){
+      $this -> sql .= ' ORDER BY ' . $column . ' ' . $sort;
       return $this;
     }
 
