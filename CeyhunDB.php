@@ -10,7 +10,7 @@
     }
 
     function dbhost($host){
-      $this -> sql .= 'mysql:host=' . $host . ';';
+      $this -> sql .= 'mysql:host=' . $host . ';charset=utf8mb4;';
       return $this;
     }
 
