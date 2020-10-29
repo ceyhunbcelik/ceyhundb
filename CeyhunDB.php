@@ -224,6 +224,10 @@
       }
     }
 
+    function group_by($column){
+      $this -> sql .= ' GROUP BY ' . $column;
+      return $this;
+    }
 
     function between($start, $end){
       $this -> sql .= ' BETWEEN "' . $start . ' 00:00:00" AND "' . $end . ' 23:59:59"';
