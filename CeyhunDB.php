@@ -1,8 +1,5 @@
 <?php
 
-  /* FIND_IN_SET */
-  /* GROUP_CONCAT */
-
   class sqlStatements{
 
     function __construct(){
@@ -124,6 +121,9 @@
       try {
         global $db;
 
+        echo "<br>'CEYHUNDB'";
+        print_r(func_get_args($values));
+
         $query = $db -> prepare($this -> sql);
         $query -> execute(func_get_args($values));
 
@@ -168,7 +168,7 @@
       $lastInsertId = $db -> lastInsertId();
       return $lastInsertId;
     }
-
+    // implode
     function where($column, $comparison, $value){
       $this -> sql .= ' WHERE ' . $column . ' ' . $comparison . ' ' . $value;
       return $this;
