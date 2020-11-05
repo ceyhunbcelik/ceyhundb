@@ -121,7 +121,6 @@
       try {
         global $db;
 
-        echo "<br>'CEYHUNDB'";
         print_r(func_get_args($values));
 
         $query = $db -> prepare($this -> sql);
