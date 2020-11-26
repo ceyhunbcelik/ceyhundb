@@ -6,6 +6,7 @@
   define('PATH', realpath('.'));
   define('SUBFOLDER', subfolder());
   define('URL', url());
+  $DEVELOPMENT = SUBFOLDER == true ? '/BasicBlog' : null;
 
   function subfolder(){
     return dirname($_SERVER['SCRIPT_NAME']) === '\\' || dirname($_SERVER['SCRIPT_NAME']) == '/' ? 0 : 1;
@@ -40,7 +41,7 @@
 
   require_once(PATH . '/app/CeyhunPHP/CeyhunDB.php');
   $sql = new sqlStatements();
-  
+
   require_once(PATH . '/app/init.php');
 
 
